@@ -1,0 +1,12 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "type": "driver",
+      "image": "/images/verstappen.jpg",
+      "question": "Wer ist das?",
+      "answer": ["Max Verstappen", "Verstappen"],
+      "points": 10
+    }
+  ]
+}
