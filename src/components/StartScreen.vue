@@ -3,9 +3,14 @@
     <!-- Logo & title -->
     <div class="logo-section">
       <div class="logo">
-        <div class="f1-car left"></div>
-        <span class="f1-text">F1</span>
-        <div class="f1-car right"></div>
+        <div class="f1-logo-container">
+          <img 
+            src="/src/assets/images/F1_Main_Graph.png" 
+            alt="F1 Logo Background"
+            class="f1-background-image"
+          />
+          <span class="f1-text">F1</span>
+        </div>
       </div>
       <h1 class="subtitle">DAS INOFFIZIELLE QUIZ</h1>
     </div>
@@ -75,41 +80,36 @@ function startQuiz() {
 .logo {
   display: flex;
   align-items: center;
-  gap: 20px;
+  justify-content: center;
   margin-bottom: 20px;
 }
 
-.f1-car {
-  width: 80px;
-  height: 40px;
+.f1-logo-container {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.f1-car::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: var(--text-white);
-  clip-path: polygon(
-    30% 50%, 40% 30%, 60% 30%, 70% 50%, 
-    90% 50%, 95% 45%, 95% 55%, 90% 50%,
-    70% 50%, 60% 70%, 40% 70%, 30% 50%
-  );
-}
-
-.f1-car.left::before {
-  transform: scaleX(-1);
+.f1-background-image {
+  width: 400px;
+  height: auto;
+  object-fit: contain;
 }
 
 .f1-text {
-  font-size: 120px;
-  font-weight: 700;
+  position: absolute;
+  font-size: 125px;
+  font-weight: 900;
   color: var(--text-white);
   letter-spacing: -5px;
+  -webkit-text-stroke: 8px var(--dark-bg);
+  z-index: 2;
 }
 
 .subtitle {
+  position: relative;
+  top: -130px;
   font-size: 20px;
   font-weight: 600;
   color: var(--text-white);

@@ -24,14 +24,20 @@
 <script setup>
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { useQuizStore } from '@/stores/quiz'
 
 const route = useRoute()
 const router = useRouter()
+const quizStore = useQuizStore()
 
 const pageTitle = computed(() => {
+  if (route.name === 'question') {
+    const question = quizStore.getQuestionById(route.params.id)
+    return question?.question || 'F1 Quiz'
+  }
+  
   const titles = {
-    'questions': 'Das F1 QUIZ',
-    'question': 'Wer ist das?'
+    'questions': 'Das F1 QUIZ'
   }
   return titles[route.name] || 'F1 Quiz'
 })

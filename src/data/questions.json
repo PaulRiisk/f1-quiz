@@ -3,9 +3,65 @@
     {
       "id": 1,
       "type": "driver",
-      "image": "/images/verstappen.jpg",
+      "image": "/src/assets/images/Max.png",
       "question": "Wer ist das?",
-      "answer": ["Max Verstappen", "Verstappen"],
+      "answer": ["Max Verstappen", "Verstappen", "Max"],
+      "points": 10
+    },
+    {
+      "id": 2,
+      "type": "parts",
+      "image": "/src/assets/images/Softs.png",
+      "question": "Welcher Reifentyp ist das?",
+      "answer": ["Soft", "Weich", "S"],
+      "points": 10
+    },
+    {
+      "id": 3,
+      "type": "driver",
+      "image": "/src/assets/images/Senna.png",
+      "question": "Wem gehört dieser Helm?",
+      "answer": ["Ayrton Senna", "Senna", "Ayrton"],
+      "points": 10
+    },
+    {
+      "id": 4,
+      "type": "track",
+      "image": "/src/assets/images/Monaco.png",
+      "question": "Welcher Racetrack ist das?",
+      "answer": ["Monaco"],
+      "points": 10
+    },
+    {
+      "id": 5,
+      "type": "team",
+      "image": "/src/assets/images/Williams.png",
+      "question": "Zu welchem Team gehört dieser Rennanzug?",
+      "answer": ["Williams Racing", "Williams"],
+      "points": 10
+    },
+    {
+      "id": 6,
+      "type": "driver",
+      "image": "/src/assets/images/Charles.png",
+      "question": "Wer ist das?",
+      "answer": ["Charles Leclerc", "Leclerc", "Charles"],
+      "points": 10
+    },
+    {
+      "id": 7,
+      "type": "team",
+      "image": "/src/assets/images/Mercedes_Color.png",
+      "question": "Welche Teamfarben sind hier zu sehen?",
+      "answer": ["Mercedes", "Mercedes AMG", "AMG"],
+      "points": 10
+    },
+    {
+      "id": 8,
+      "type": "team",
+      "image": "/src/assets/images/Alpine_Car.png",
+      "question": "Zu welchem Team gehört dieses F1 Auto?",
+      "answer": ["Alpine", "BWT Alpine", "Alpine F1 Team", "Alpine F1"],
       "points": 10
     }
   ]
