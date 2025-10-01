@@ -58,7 +58,7 @@ function selectQuestion(questionId) {
 .question-card {
   position: relative;
   aspect-ratio: 1;
-  background-color: var(--text-white);
+  background-color: var(--image-bg);
   border-radius: 20px;
   overflow: hidden;
   cursor: pointer;

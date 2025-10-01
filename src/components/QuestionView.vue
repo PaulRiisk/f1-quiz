@@ -104,7 +104,7 @@ function handleContinue() {
   width: 100%;
   max-width: 450px;
   aspect-ratio: 1;
-  background-color: var(--text-white);
+  background-color: var(--image-bg);
   border-radius: 24px;
   overflow: hidden;
   margin-top: 40px;

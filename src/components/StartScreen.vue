@@ -5,7 +5,7 @@
       <div class="logo">
         <div class="f1-logo-container">
           <img 
-            src="/src/assets/images/F1_Main_Graph.png" 
+            src="/src/assets/images/F1_Main_Graph.webp" 
             alt="F1 Logo Background"
             class="f1-background-image"
           />
@@ -103,7 +103,7 @@ function startQuiz() {
   font-weight: 900;
   color: var(--text-white);
   letter-spacing: -5px;
-  -webkit-text-stroke: 8px var(--dark-bg);
+  -webkit-text-stroke: 6px var(--dark-bg);
   z-index: 2;
 }
 
