@@ -2,7 +2,6 @@
   <div class="popup-overlay" @click="handleContinue">
     <div class="popup-content" @click.stop>
       <h2 class="popup-title">Richtig!</h2>
-      <p class="popup-points">+{{ points }} Pkt.</p>
       <button 
         @click="handleContinue"
         class="continue-button"
@@ -14,14 +13,7 @@
 </template>
 
 <script setup>
-import { defineProps, defineEmits } from 'vue'
-
-defineProps({
-  points: {
-    type: Number,
-    default: 10
-  }
-})
+import { defineEmits } from 'vue'
 
 const emit = defineEmits(['continue'])
 
@@ -78,13 +70,6 @@ function handleContinue() {
 .popup-title {
   font-size: 48px;
   font-weight: 700;
-  color: var(--text-white);
-  margin: 0 0 16px 0;
-}
-
-.popup-points {
-  font-size: 32px;
-  font-weight: 600;
   color: var(--text-white);
   margin: 0 0 32px 0;
 }
