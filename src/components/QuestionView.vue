@@ -18,6 +18,7 @@
           type="text"
           :placeholder="question.question"
           class="answer-input"
+          :class="{ 'wrong': showWrongAnimation }"
           :disabled="showSuccess"
         />
       </div>
@@ -26,24 +27,32 @@
     <!-- Success Popup -->
     <SuccessPopup 
       v-if="showSuccess"
-      :points="question?.points || 10"
       @continue="handleContinue"
+    />
+
+    <!-- Hint Popup -->
+    <HintPopup 
+      v-if="popups?.hint.show.value"
+      @close="popups.hint.show.value = false"
     />
   </div>
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, inject } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useQuizStore } from '@/stores/quiz'
 import SuccessPopup from './SuccessPopup.vue'
+import HintPopup from './HintPopup.vue'
 
 const route = useRoute()
 const router = useRouter()
 const quizStore = useQuizStore()
+const popups = inject('popups')
 
 const userAnswer = ref('')
 const showSuccess = ref(false)
+const showWrongAnimation = ref(false)
 
 const question = computed(() => {
   return quizStore.getQuestionById(route.params.id)
@@ -71,7 +80,12 @@ function submitAnswer() {
   } else {
     // Falsche Antwort - Input leeren und Shake-Animation
     userAnswer.value = ''
-    // Optional: Shake-Animation oder Feedback
+    showWrongAnimation.value = true
+    
+    // Animation nach 500ms zurücksetzen
+    setTimeout(() => {
+      showWrongAnimation.value = false
+    }, 500)
   }
 }
 
@@ -83,12 +97,14 @@ function handleContinue() {
 
 <style scoped>
 .question-view {
-  min-height: 100vh;
+  height: calc(100vh - 80px); /* Abzug der Navbar-Höhe */
+  min-height: calc(100vh - 80px);
   display: flex;
   flex-direction: column;
   background-color: var(--dark-bg);
   padding: 20px;
   position: relative;
+  overflow: hidden;
 }
 
 .question-content {
@@ -129,11 +145,11 @@ function handleContinue() {
   padding: 18px 24px;
   font-size: 16px;
   background-color: var(--text-white);
-  border: none;
+  border: 3px solid transparent;
   border-radius: 16px;
   color: var(--darker-bg);
   outline: none;
-  transition: transform 0.2s;
+  transition: transform 0.2s, border-color 0.2s;
 }
 
 .answer-input::placeholder {
@@ -148,14 +164,15 @@ function handleContinue() {
   opacity: 0.5;
 }
 
+.answer-input.wrong {
+  animation: shake 0.5s;
+  border-color: var(--primary-red);
+}
+
 /* Optional: Shake Animation bei falscher Antwort */
 @keyframes shake {
   0%, 100% { transform: translateX(0); }
   10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
   20%, 40%, 60%, 80% { transform: translateX(10px); }
-}
-
-.answer-input.wrong {
-  animation: shake 0.5s;
 }
 </style>

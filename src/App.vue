@@ -1,10 +1,10 @@
 <template>
   <div class="app-container">
-    <AppHeader v-if="showHeader" />
+    <AppHeader v-if="showHeader" @show-hint="handleShowHint" @show-reset="handleShowReset" />
     <main class="main-content">
       <router-view v-slot="{ Component }">
         <transition name="fade" mode="out-in">
-          <component :is="Component" />
+          <component :is="Component" :key="route.fullPath" @show-hint="handleShowHint" />
         </transition>
       </router-view>
     </main>
@@ -12,15 +12,37 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, provide, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import AppHeader from './components/AppHeader.vue'
 
 const route = useRoute()
+const showHintPopup = ref(false)
+const showResetPopup = ref(false)
 
 // Header only on specific sites
 const showHeader = computed(() => {
   return route.name !== 'start'
+})
+
+function handleShowHint() {
+  showHintPopup.value = true
+}
+
+function handleShowReset() {
+  showResetPopup.value = true
+}
+
+// Provide the popup states to child components
+provide('popups', {
+  hint: {
+    show: showHintPopup,
+    toggle: handleShowHint
+  },
+  reset: {
+    show: showResetPopup,
+    toggle: handleShowReset
+  }
 })
 </script>
 

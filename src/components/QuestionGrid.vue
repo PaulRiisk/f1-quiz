@@ -18,16 +18,26 @@
         </div>
       </div>
     </div>
+
+    <!-- Reset Confirmation Popup -->
+    <ResetConfirmationPopup 
+      v-if="popups?.reset.show.value"
+      @confirm="handleResetConfirm"
+      @cancel="popups.reset.show.value = false"
+    />
   </div>
 </template>
 
 <script setup>
+import { inject } from 'vue'
 import { useRouter } from 'vue-router'
 import { useQuizStore } from '@/stores/quiz'
 import { storeToRefs } from 'pinia'
+import ResetConfirmationPopup from './ResetConfirmationPopup.vue'
 
 const router = useRouter()
 const quizStore = useQuizStore()
+const popups = inject('popups')
 
 const { questions } = storeToRefs(quizStore)
 
@@ -37,6 +47,11 @@ function isAnswered(questionId) {
 
 function selectQuestion(questionId) {
   router.push({ name: 'question', params: { id: questionId } })
+}
+
+function handleResetConfirm() {
+  quizStore.reset()
+  popups.reset.show.value = false
 }
 </script>
 
