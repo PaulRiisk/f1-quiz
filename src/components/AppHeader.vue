@@ -12,10 +12,19 @@
       <h1 class="title">{{ pageTitle }}</h1>
       <button 
         v-if="showHelp"
+        @click="$emit('show-hint')"
         class="help-button"
         aria-label="Hilfe"
       >
         <span class="material-icons">help_outline</span>
+      </button>
+      <button 
+        v-if="showReset"
+        @click="$emit('show-reset')"
+        class="reset-button"
+        aria-label="Zurücksetzen"
+      >
+        <span class="material-icons">refresh</span>
       </button>
     </nav>
   </header>
@@ -25,6 +34,8 @@
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useQuizStore } from '@/stores/quiz'
+
+defineEmits(['show-hint', 'show-reset'])
 
 const route = useRoute()
 const router = useRouter()
@@ -48,6 +59,10 @@ const canGoBack = computed(() => {
 
 const showHelp = computed(() => {
   return route.name === 'question'
+})
+
+const showReset = computed(() => {
+  return route.name === 'questions'
 })
 
 function goBack() {
@@ -76,7 +91,8 @@ function goBack() {
 }
 
 .back-button,
-.help-button {
+.help-button,
+.reset-button {
   background: none;
   border: none;
   color: var(--text-white);
@@ -88,7 +104,8 @@ function goBack() {
 }
 
 .back-button:hover,
-.help-button:hover {
+.help-button:hover,
+.reset-button:hover {
   opacity: 0.7;
 }
 
@@ -96,7 +113,8 @@ function goBack() {
   font-size: 32px;
 }
 
-.help-button .material-icons {
+.help-button .material-icons,
+.reset-button .material-icons {
   font-size: 24px;
 }
 
@@ -109,7 +127,8 @@ function goBack() {
   color: var(--text-white);
 }
 
-.help-button {
+.help-button,
+.reset-button {
   margin-left: auto;
 }
 </style>
