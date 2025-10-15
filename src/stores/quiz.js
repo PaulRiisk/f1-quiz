@@ -1,12 +1,54 @@
 import { defineStore } from 'pinia'
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import questionsData from '@/data/questions.json'
 
+const STORAGE_KEY = 'f1-quiz-progress'
+
+// Hilfsfunktion zum Laden des gespeicherten Fortschritts
+function loadProgress() {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY)
+    if (saved) {
+      const data = JSON.parse(saved)
+      return {
+        answeredQuestions: new Set(data.answeredQuestions || []),
+        totalPoints: data.totalPoints || 0
+      }
+    }
+  } catch (error) {
+    console.error('Fehler beim Laden des Fortschritts:', error)
+  }
+  return {
+    answeredQuestions: new Set(),
+    totalPoints: 0
+  }
+}
+
+// Hilfsfunktion zum Speichern des Fortschritts
+function saveProgress(answeredQuestions, totalPoints) {
+  try {
+    const data = {
+      answeredQuestions: Array.from(answeredQuestions),
+      totalPoints: totalPoints,
+      lastUpdated: new Date().toISOString()
+    }
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data))
+  } catch (error) {
+    console.error('Fehler beim Speichern des Fortschritts:', error)
+  }
+}
+
 export const useQuizStore = defineStore('quiz', () => {
-  // State
+  // State mit gespeicherten Daten initialisieren
+  const savedProgress = loadProgress()
   const questions = ref(questionsData.questions)
-  const answeredQuestions = ref(new Set())
-  const totalPoints = ref(0)
+  const answeredQuestions = ref(savedProgress.answeredQuestions)
+  const totalPoints = ref(savedProgress.totalPoints)
+
+  // Automatisches Speichern bei Änderungen
+  watch([answeredQuestions, totalPoints], () => {
+    saveProgress(answeredQuestions.value, totalPoints.value)
+  }, { deep: true })
 
   // Getters
   const answeredCount = computed(() => answeredQuestions.value.size)
@@ -45,6 +87,8 @@ export const useQuizStore = defineStore('quiz', () => {
   function reset() {
     answeredQuestions.value.clear()
     totalPoints.value = 0
+    // Fortschritt aus localStorage löschen
+    localStorage.removeItem(STORAGE_KEY)
   }
 
   return {
