@@ -53,17 +53,17 @@ function handleClose() {
 
 .popup-content {
   background-color: var(--text-white);
-  border-radius: 24px;
-  padding: 48px 40px;
-  max-width: 400px;
-  width: calc(100% - 40px);
+  border-radius: 1.5rem;
+  padding: 3rem 2.5rem;
+  max-width: 25rem;
+  width: calc(100% - 2.5rem);
   text-align: center;
   animation: slideUp 0.4s ease;
 }
 
 @keyframes slideUp {
   from {
-    transform: translateY(50px);
+    transform: translateY(3.125rem);
     opacity: 0;
   }
   to {
@@ -73,28 +73,28 @@ function handleClose() {
 }
 
 .popup-title {
-  font-size: 48px;
+  font-size: 3rem;
   font-weight: 700;
   color: var(--dark-bg);
-  margin: 0 0 24px 0;
+  margin: 0 0 1.5rem 0;
 }
 
 .popup-text {
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 400;
   color: var(--dark-bg);
-  margin: 0 0 32px 0;
+  margin: 0 0 2rem 0;
   line-height: 1.4;
 }
 
 .close-button {
   width: 100%;
-  padding: 16px;
+  padding: 1rem;
   background-color: var(--dark-bg);
   border: none;
-  border-radius: 16px;
+  border-radius: 1rem;
   color: var(--text-white);
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 600;
   cursor: pointer;
   transition: transform 0.2s, opacity 0.2s;

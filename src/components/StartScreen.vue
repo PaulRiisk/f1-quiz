@@ -63,7 +63,7 @@ function startQuiz() {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 20px;
+  padding: 2.5rem 1.25rem;
   background-color: var(--dark-bg);
 }
 
@@ -74,14 +74,14 @@ function startQuiz() {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 60px;
+  margin-top: 3.75rem;
 }
 
 .logo {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
 
 .f1-logo-container {
@@ -92,47 +92,47 @@ function startQuiz() {
 }
 
 .f1-background-image {
-  width: 400px;
+  width: 25rem;
   height: auto;
   object-fit: contain;
 }
 
 .f1-text {
   position: absolute;
-  font-size: 125px;
+  font-size: 7.8125rem;
   font-weight: 900;
   color: var(--text-white);
-  letter-spacing: -5px;
-  -webkit-text-stroke: 6px var(--dark-bg);
+  letter-spacing: -0.3125rem;
+  -webkit-text-stroke: 0.375rem var(--dark-bg);
   z-index: 2;
 }
 
 .subtitle {
   position: relative;
-  top: -130px;
-  font-size: 20px;
+  top: -8.125rem;
+  font-size: 1.25rem;
   font-weight: 600;
   color: var(--text-white);
-  letter-spacing: 2px;
+  letter-spacing: 0.125rem;
 }
 
 /* Start button */
 .start-button {
-  width: calc(100% - 40px);
-  max-width: 400px;
-  padding: 18px;
+  width: calc(100% - 2.5rem);
+  max-width: 25rem;
+  padding: 1.125rem;
   background-color: var(--primary-red);
   border: none;
-  border-radius: 12px;
+  border-radius: 0.75rem;
   color: var(--text-white);
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 600;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  margin-bottom: 40px;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
   transition: transform 0.2s, opacity 0.2s;
 }
 
@@ -146,42 +146,42 @@ function startQuiz() {
 }
 
 .play-icon {
-  font-size: 28px;
+  font-size: 1.75rem;
 }
 
 /* Progress section */
 .progress-section {
-  width: calc(100% - 40px);
-  max-width: 400px;
+  width: calc(100% - 2.5rem);
+  max-width: 25rem;
   background-color: var(--darker-bg);
-  border-radius: 16px;
-  padding: 24px;
-  margin-bottom: 40px;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .progress-bar-container {
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
 }
 
 .progress-bar {
   width: 100%;
-  height: 8px;
+  height: 0.5rem;
   background-color: var(--card-bg);
-  border-radius: 4px;
+  border-radius: 0.25rem;
   overflow: hidden;
 }
 
 .progress-fill {
   height: 100%;
   background-color: var(--text-white);
-  border-radius: 4px;
+  border-radius: 0.25rem;
   transition: width 0.3s ease;
 }
 
 .progress-info {
   display: flex;
   justify-content: space-between;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 500;
   color: var(--text-white);
 }

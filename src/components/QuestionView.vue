@@ -59,7 +59,7 @@ const question = computed(() => {
 })
 
 onMounted(() => {
-  // Wenn Frage schon beantwortet wurde, zurück zur Übersicht
+  // If question is already answered, return to overview
   if (quizStore.isAnswered(parseInt(route.params.id))) {
     router.push({ name: 'questions' })
   }
@@ -71,18 +71,18 @@ function submitAnswer() {
   const isCorrect = quizStore.checkAnswer(question.value.id, userAnswer.value)
 
   if (isCorrect) {
-    // Punkte hinzufügen und als beantwortet markieren
+    // Add points and mark as answered
     quizStore.addPoints(question.value.points)
     quizStore.markAsAnswered(question.value.id)
     
-    // Success Popup anzeigen
+    // Show success popup
     showSuccess.value = true
   } else {
-    // Falsche Antwort - Input leeren und Shake-Animation
+    // Wrong answer - clear input and show shake animation
     userAnswer.value = ''
     showWrongAnimation.value = true
     
-    // Animation nach 500ms zurücksetzen
+    // Reset animation after 500ms
     setTimeout(() => {
       showWrongAnimation.value = false
     }, 500)
@@ -97,12 +97,12 @@ function handleContinue() {
 
 <style scoped>
 .question-view {
-  height: calc(100vh - 80px); /* Abzug der Navbar-Höhe */
-  min-height: calc(100vh - 80px);
+  height: calc(100vh - 5rem); /* Subtract navbar height */
+  min-height: calc(100vh - 5rem);
   display: flex;
   flex-direction: column;
   background-color: var(--dark-bg);
-  padding: 20px;
+  padding: 1.25rem;
   position: relative;
   overflow: hidden;
 }
@@ -111,19 +111,19 @@ function handleContinue() {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
+  gap: 2.5rem;
   flex: 1;
 }
 
 /* Image Container */
 .image-container {
   width: 100%;
-  max-width: 450px;
+  max-width: 28.125rem;
   aspect-ratio: 1;
   background-color: var(--image-bg);
-  border-radius: 24px;
+  border-radius: 1.5rem;
   overflow: hidden;
-  margin-top: 40px;
+  margin-top: 2.5rem;
 }
 
 .question-image {
@@ -135,18 +135,18 @@ function handleContinue() {
 /* Input Container */
 .input-container {
   width: 100%;
-  max-width: 600px;
+  max-width: 37.5rem;
   margin-top: auto;
-  padding-bottom: 40px;
+  padding-bottom: 2.5rem;
 }
 
 .answer-input {
   width: 100%;
-  padding: 18px 24px;
-  font-size: 16px;
+  padding: 1.125rem 1.5rem;
+  font-size: 1rem;
   background-color: var(--text-white);
-  border: 3px solid transparent;
-  border-radius: 16px;
+  border: 0.1875rem solid transparent;
+  border-radius: 1rem;
   color: var(--darker-bg);
   outline: none;
   transition: transform 0.2s, border-color 0.2s;
@@ -169,10 +169,10 @@ function handleContinue() {
   border-color: var(--primary-red);
 }
 
-/* Optional: Shake Animation bei falscher Antwort */
+/* Shake animation for wrong answer */
 @keyframes shake {
   0%, 100% { transform: translateX(0); }
-  10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
-  20%, 40%, 60%, 80% { transform: translateX(10px); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-0.625rem); }
+  20%, 40%, 60%, 80% { transform: translateX(0.625rem); }
 }
 </style>

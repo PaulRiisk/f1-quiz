@@ -48,17 +48,17 @@ function handleContinue() {
 
 .popup-content {
   background-color: var(--primary-red);
-  border-radius: 24px;
-  padding: 48px 40px;
-  max-width: 400px;
-  width: calc(100% - 40px);
+  border-radius: 1.5rem;
+  padding: 3rem 2.5rem;
+  max-width: 25rem;
+  width: calc(100% - 2.5rem);
   text-align: center;
   animation: slideUp 0.4s ease;
 }
 
 @keyframes slideUp {
   from {
-    transform: translateY(50px);
+    transform: translateY(3.125rem);
     opacity: 0;
   }
   to {
@@ -68,20 +68,20 @@ function handleContinue() {
 }
 
 .popup-title {
-  font-size: 48px;
+  font-size: 3rem;
   font-weight: 700;
   color: var(--text-white);
-  margin: 0 0 32px 0;
+  margin: 0 0 2rem 0;
 }
 
 .continue-button {
   width: 100%;
-  padding: 16px;
+  padding: 1rem;
   background-color: var(--text-white);
   border: none;
-  border-radius: 16px;
+  border-radius: 1rem;
   color: var(--primary-red);
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 600;
   cursor: pointer;
   transition: transform 0.2s, opacity 0.2s;

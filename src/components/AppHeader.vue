@@ -5,7 +5,7 @@
         v-if="canGoBack" 
         @click="goBack" 
         class="back-button"
-        aria-label="Zurück"
+        aria-label="Back"
       >
         <span class="material-icons">chevron_left</span>
       </button>
@@ -14,7 +14,7 @@
         v-if="showHelp"
         @click="$emit('show-hint')"
         class="help-button"
-        aria-label="Hilfe"
+        aria-label="Help"
       >
         <span class="material-icons">help_outline</span>
       </button>
@@ -22,7 +22,7 @@
         v-if="showReset"
         @click="$emit('show-reset')"
         class="reset-button"
-        aria-label="Zurücksetzen"
+        aria-label="Reset"
       >
         <span class="material-icons">refresh</span>
       </button>
@@ -86,7 +86,7 @@ function goBack() {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 20px;
+  padding: 1rem 1.25rem;
   position: relative;
 }
 
@@ -97,7 +97,7 @@ function goBack() {
   border: none;
   color: var(--text-white);
   cursor: pointer;
-  padding: 8px;
+  padding: 0.5rem;
   display: flex;
   align-items: center;
   transition: opacity 0.2s;
@@ -110,19 +110,19 @@ function goBack() {
 }
 
 .back-button .material-icons {
-  font-size: 32px;
+  font-size: 2rem;
 }
 
 .help-button .material-icons,
 .reset-button .material-icons {
-  font-size: 24px;
+  font-size: 1.5rem;
 }
 
 .title {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 600;
   color: var(--text-white);
 }
