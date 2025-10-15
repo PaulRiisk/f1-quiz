@@ -20,8 +20,14 @@
     </div>
 
     <!-- Reset Confirmation Popup -->
-    <ResetConfirmationPopup 
+    <BasePopup 
       v-if="popups?.reset.show.value"
+      title="Achtung!"
+      message="Willst du deinen Fortschritt<br>zurücksetzen?"
+      variant="warning"
+      confirm-text="Ja"
+      cancel-text="Nein"
+      :show-cancel-button="true"
       @confirm="handleResetConfirm"
       @cancel="popups.reset.show.value = false"
     />
@@ -33,7 +39,7 @@ import { inject } from 'vue'
 import { useRouter } from 'vue-router'
 import { useQuizStore } from '@/stores/quiz'
 import { storeToRefs } from 'pinia'
-import ResetConfirmationPopup from './ResetConfirmationPopup.vue'
+import BasePopup from './BasePopup.vue'
 
 const router = useRouter()
 const quizStore = useQuizStore()

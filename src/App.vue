@@ -20,10 +20,8 @@ const route = useRoute()
 const showHintPopup = ref(false)
 const showResetPopup = ref(false)
 
-// Header only on specific sites
-const showHeader = computed(() => {
-  return route.name !== 'start'
-})
+// Header only on specific routes
+const showHeader = computed(() => route.name !== 'start')
 
 function handleShowHint() {
   showHintPopup.value = true

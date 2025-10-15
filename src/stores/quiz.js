@@ -4,7 +4,7 @@ import questionsData from '@/data/questions.json'
 
 const STORAGE_KEY = 'f1-quiz-progress'
 
-// Hilfsfunktion zum Laden des gespeicherten Fortschritts
+// Helper function to load saved progress
 function loadProgress() {
   try {
     const saved = localStorage.getItem(STORAGE_KEY)
@@ -16,7 +16,7 @@ function loadProgress() {
       }
     }
   } catch (error) {
-    console.error('Fehler beim Laden des Fortschritts:', error)
+    console.error('Error loading progress:', error)
   }
   return {
     answeredQuestions: new Set(),
@@ -24,7 +24,7 @@ function loadProgress() {
   }
 }
 
-// Hilfsfunktion zum Speichern des Fortschritts
+// Helper function to save progress
 function saveProgress(answeredQuestions, totalPoints) {
   try {
     const data = {
@@ -34,18 +34,18 @@ function saveProgress(answeredQuestions, totalPoints) {
     }
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data))
   } catch (error) {
-    console.error('Fehler beim Speichern des Fortschritts:', error)
+    console.error('Error saving progress:', error)
   }
 }
 
 export const useQuizStore = defineStore('quiz', () => {
-  // State mit gespeicherten Daten initialisieren
+  // Initialize state with saved data
   const savedProgress = loadProgress()
   const questions = ref(questionsData.questions)
   const answeredQuestions = ref(savedProgress.answeredQuestions)
   const totalPoints = ref(savedProgress.totalPoints)
 
-  // Automatisches Speichern bei Änderungen
+  // Auto-save on changes
   watch([answeredQuestions, totalPoints], () => {
     saveProgress(answeredQuestions.value, totalPoints.value)
   }, { deep: true })
@@ -87,7 +87,7 @@ export const useQuizStore = defineStore('quiz', () => {
   function reset() {
     answeredQuestions.value.clear()
     totalPoints.value = 0
-    // Fortschritt aus localStorage löschen
+    // Remove progress from localStorage
     localStorage.removeItem(STORAGE_KEY)
   }
 

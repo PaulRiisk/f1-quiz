@@ -25,14 +25,20 @@
     </div>
 
     <!-- Success Popup -->
-    <SuccessPopup 
+    <BasePopup 
       v-if="showSuccess"
-      @continue="handleContinue"
+      title="Richtig!"
+      variant="success"
+      confirm-text="Weiter"
+      @confirm="handleContinue"
     />
 
     <!-- Hint Popup -->
-    <HintPopup 
+    <BasePopup 
       v-if="popups?.hint.show.value"
+      title="Hinweis"
+      message="Beantworte die gestellte Frage.<br>Groß und Kleinschreibung ist<br>irrelevant. Achte auf Leerzeichen."
+      confirm-text="Zurück"
       @close="popups.hint.show.value = false"
     />
   </div>
@@ -42,8 +48,7 @@
 import { ref, computed, onMounted, inject } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useQuizStore } from '@/stores/quiz'
-import SuccessPopup from './SuccessPopup.vue'
-import HintPopup from './HintPopup.vue'
+import BasePopup from './BasePopup.vue'
 
 const route = useRoute()
 const router = useRouter()
