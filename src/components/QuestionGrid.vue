@@ -1,5 +1,8 @@
 <template>
   <div class="question-grid-container">
+    <!-- Progress Bar -->
+    <ProgressBar @completed-click="showCompletionPopup = true" />
+
     <div class="question-grid">
       <div
         v-for="question in questions"
@@ -31,21 +34,36 @@
       @confirm="handleResetConfirm"
       @cancel="popups.reset.show.value = false"
     />
+
+    <!-- Completion Popup -->
+    <BasePopup 
+      v-if="showCompletionPopup"
+      title="Geschafft!"
+      message="Willst du Neustarten?"
+      variant="success"
+      confirm-text="Ja"
+      cancel-text="Nein"
+      :show-cancel-button="true"
+      @confirm="handleRestartConfirm"
+      @cancel="showCompletionPopup = false"
+    />
   </div>
 </template>
 
 <script setup>
-import { inject } from 'vue'
+import { inject, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useQuizStore } from '@/stores/quiz'
 import { storeToRefs } from 'pinia'
 import BasePopup from './BasePopup.vue'
+import ProgressBar from './ProgressBar.vue'
 
 const router = useRouter()
 const quizStore = useQuizStore()
 const popups = inject('popups')
 
 const { questions } = storeToRefs(quizStore)
+const showCompletionPopup = ref(false)
 
 function isAnswered(questionId) {
   return quizStore.isAnswered(questionId)
@@ -58,6 +76,11 @@ function selectQuestion(questionId) {
 function handleResetConfirm() {
   quizStore.reset()
   popups.reset.show.value = false
+}
+
+function handleRestartConfirm() {
+  quizStore.reset()
+  showCompletionPopup.value = false
 }
 </script>
 
