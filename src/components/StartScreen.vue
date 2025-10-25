@@ -20,7 +20,7 @@
       @click="startQuiz" 
       class="start-button"
     >
-      <span class="play-icon material-icons">play_arrow</span>
+      <span class="play-icon">▶</span>
       <span>Start</span>
     </button>
 
@@ -34,7 +34,7 @@
       v-if="showCompletionPopup"
       title="Geschafft!"
       message="Willst du Neustarten?"
-      variant="success"
+      variant="warning"
       confirm-text="Ja"
       cancel-text="Nein"
       :show-cancel-button="true"
@@ -154,7 +154,7 @@ function handleRestartConfirm() {
 }
 
 .play-icon {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
 }
 
 /* Progress section */

@@ -11,25 +11,22 @@ function loadProgress() {
     if (saved) {
       const data = JSON.parse(saved)
       return {
-        answeredQuestions: new Set(data.answeredQuestions || []),
-        totalPoints: data.totalPoints || 0
+        answeredQuestions: new Set(data.answeredQuestions || [])
       }
     }
   } catch (error) {
     console.error('Error loading progress:', error)
   }
   return {
-    answeredQuestions: new Set(),
-    totalPoints: 0
+    answeredQuestions: new Set()
   }
 }
 
 // Helper function to save progress
-function saveProgress(answeredQuestions, totalPoints) {
+function saveProgress(answeredQuestions) {
   try {
     const data = {
       answeredQuestions: Array.from(answeredQuestions),
-      totalPoints: totalPoints,
       lastUpdated: new Date().toISOString()
     }
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data))
@@ -43,11 +40,10 @@ export const useQuizStore = defineStore('quiz', () => {
   const savedProgress = loadProgress()
   const questions = ref(questionsData.questions)
   const answeredQuestions = ref(savedProgress.answeredQuestions)
-  const totalPoints = ref(savedProgress.totalPoints)
 
   // Auto-save on changes
-  watch([answeredQuestions, totalPoints], () => {
-    saveProgress(answeredQuestions.value, totalPoints.value)
+  watch(answeredQuestions, () => {
+    saveProgress(answeredQuestions.value)
   }, { deep: true })
 
   // Getters
@@ -60,10 +56,6 @@ export const useQuizStore = defineStore('quiz', () => {
   // Actions
   function markAsAnswered(questionId) {
     answeredQuestions.value.add(questionId)
-  }
-
-  function addPoints(points) {
-    totalPoints.value += points
   }
 
   function isAnswered(questionId) {
@@ -86,7 +78,6 @@ export const useQuizStore = defineStore('quiz', () => {
 
   function reset() {
     answeredQuestions.value.clear()
-    totalPoints.value = 0
     // Remove progress from localStorage
     localStorage.removeItem(STORAGE_KEY)
   }
@@ -94,12 +85,10 @@ export const useQuizStore = defineStore('quiz', () => {
   return {
     questions,
     answeredQuestions,
-    totalPoints,
     answeredCount,
     totalQuestions,
     progressPercentage,
     markAsAnswered,
-    addPoints,
     isAnswered,
     getQuestionById,
     checkAnswer,

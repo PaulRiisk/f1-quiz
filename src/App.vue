@@ -4,7 +4,7 @@
     <main class="main-content">
       <router-view v-slot="{ Component }">
         <transition name="fade" mode="out-in">
-          <component :is="Component" :key="route.fullPath" @show-hint="handleShowHint" />
+          <component :is="Component" :key="route.fullPath" />
         </transition>
       </router-view>
     </main>
@@ -57,7 +57,7 @@ provide('popups', {
   position: relative;
 }
 
-/* Transition animations */
+/* Transition animations - Simple Fade */
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.3s ease;

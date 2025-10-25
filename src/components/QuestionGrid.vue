@@ -15,9 +15,10 @@
           :src="question.image" 
           :alt="question.question"
           class="question-image"
+          loading="lazy"
         />
         <div v-if="isAnswered(question.id)" class="answered-indicator">
-          <span class="material-icons">check</span>
+          <span class="check-icon">✓</span>
         </div>
       </div>
     </div>
@@ -40,7 +41,7 @@
       v-if="showCompletionPopup"
       title="Geschafft!"
       message="Willst du Neustarten?"
-      variant="success"
+      variant="warning"
       confirm-text="Ja"
       cancel-text="Nein"
       :show-cancel-button="true"
@@ -138,9 +139,10 @@ function handleRestartConfirm() {
   box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.3);
 }
 
-.answered-indicator .material-icons {
+.check-icon {
   color: var(--text-white);
-  font-size: 1.5rem;
+  font-size: 1.75rem;
+  font-weight: bold;
 }
 
 /* Answered question dimming */

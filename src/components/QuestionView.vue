@@ -7,6 +7,7 @@
           :src="question.image" 
           :alt="question.question"
           class="question-image"
+          loading="lazy"
         />
       </div>
 
@@ -26,7 +27,7 @@
           class="submit-button"
           :disabled="!userAnswer.trim() || showSuccess"
         >
-          <span class="material-icons">send</span>
+          <img src="@/assets/icons/send.svg" alt="Send" class="icon" />
         </button>
       </div>
     </div>
@@ -83,8 +84,7 @@ function submitAnswer() {
   const isCorrect = quizStore.checkAnswer(question.value.id, userAnswer.value)
 
   if (isCorrect) {
-    // Add points and mark as answered
-    quizStore.addPoints(question.value.points)
+    // Mark as answered
     quizStore.markAsAnswered(question.value.id)
     
     // Show success popup
@@ -195,8 +195,10 @@ function handleContinue() {
   cursor: not-allowed;
 }
 
-.submit-button .material-icons {
-  font-size: 1.5rem;
+.submit-button .icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  filter: brightness(0) invert(1); /* Makes SVG white */
 }
 
 .answer-input::placeholder {

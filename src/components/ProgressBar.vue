@@ -79,8 +79,8 @@ function handleClick() {
 .progress-text {
   position: absolute;
   top: 50%;
-  right: 1.25rem;
-  transform: translateY(-50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-size: 1rem;
   font-weight: 700;
   color: var(--dark-bg);
