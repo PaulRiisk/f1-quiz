@@ -6,8 +6,6 @@
 
 Eine interaktive Quiz-Webanwendung rund um die Formel 1. Die App testet spielerisch das Wissen über Fahrer, Teams, Rennstrecken und mehr durch bildbasierte Fragen.
 
----
-
 ## Projektbeschreibung
 
 Dieses Projekt ist ein nicht-kommerzielles Fanprojekt und dient ausschließlich zu Bildungs- und Unterhaltungszwecken. Es besteht keine offizielle Verbindung zur Formel 1, der FIA oder anderen F1-Organisationen. Alle verwendeten Grafiken wurden selbst erstellt.
@@ -23,8 +21,6 @@ Dieses Projekt ist ein nicht-kommerzielles Fanprojekt und dient ausschließlich 
 - **Responsive Design** optimiert für Mobile und Desktop
 - **Impressum** mit allen rechtlichen Informationen
 
----
-
 ## Technologien
 
 - **Vue 3** (Composition API)
@@ -32,8 +28,6 @@ Dieses Projekt ist ein nicht-kommerzielles Fanprojekt und dient ausschließlich 
 - **Pinia** für State Management
 - **Vite** als Build-Tool und Dev-Server
 - **Custom CSS** mit CSS Variables
-
----
 
 ## Installation & Start
 
@@ -58,8 +52,6 @@ npm run dev
 
 Die Anwendung ist nun unter **http://localhost:5173** erreichbar.
 
----
-
 ## Nutzung
 
 1. **Startbildschirm**: Zeigt Logo und aktuellen Fortschritt
@@ -76,8 +68,6 @@ Die Anwendung ist nun unter **http://localhost:5173** erreichbar.
 - **Reset-Button** (↻): Setzt Fortschritt zurück
 - **Info-Button** (i): Öffnet Impressum
 
----
-
 ## Besonderheiten der Implementierung
 
 - **Pinia Store** verwaltet Fragen, Fortschritt und Antworten
@@ -90,21 +80,15 @@ Die Anwendung ist nun unter **http://localhost:5173** erreichbar.
 - Desktop-Version mit fester Breite und Hintergrund
 - Touch-optimierte Interaktionen
 
----
-
 ## Lizenz & Urheberrecht
 
 Dieses Projekt ist eine Prüfungsleistung und dient ausschließlich Bildungszwecken. Alle selbst erstellten Grafiken und Illustrationen sind künstlerische Interpretationen. Marken und Namen bleiben Eigentum ihrer jeweiligen Rechteinhaber.
-
----
 
 ## Autor
 
 **Name Nachname**  
 Matrikelnummer: 
 E-Mail: 
-
----
 
 *Erstellt mit Vue 3 + Vite*
   
