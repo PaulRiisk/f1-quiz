@@ -1,5 +1,8 @@
 <template>
   <div class="question-grid-container">
+    <!-- Progress Bar -->
+    <ProgressBar @completed-click="showCompletionPopup = true" />
+
     <div class="question-grid">
       <div
         v-for="question in questions"
@@ -12,9 +15,10 @@
           :src="question.image" 
           :alt="question.question"
           class="question-image"
+          loading="lazy"
         />
         <div v-if="isAnswered(question.id)" class="answered-indicator">
-          <span class="material-icons">check</span>
+          <span class="check-icon">✓</span>
         </div>
       </div>
     </div>
@@ -31,21 +35,36 @@
       @confirm="handleResetConfirm"
       @cancel="popups.reset.show.value = false"
     />
+
+    <!-- Completion Popup -->
+    <BasePopup 
+      v-if="showCompletionPopup"
+      title="Geschafft!"
+      message="Willst du Neustarten?"
+      variant="warning"
+      confirm-text="Ja"
+      cancel-text="Nein"
+      :show-cancel-button="true"
+      @confirm="handleRestartConfirm"
+      @cancel="showCompletionPopup = false"
+    />
   </div>
 </template>
 
 <script setup>
-import { inject } from 'vue'
+import { inject, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useQuizStore } from '@/stores/quiz'
 import { storeToRefs } from 'pinia'
 import BasePopup from './BasePopup.vue'
+import ProgressBar from './ProgressBar.vue'
 
 const router = useRouter()
 const quizStore = useQuizStore()
 const popups = inject('popups')
 
 const { questions } = storeToRefs(quizStore)
+const showCompletionPopup = ref(false)
 
 function isAnswered(questionId) {
   return quizStore.isAnswered(questionId)
@@ -58,6 +77,11 @@ function selectQuestion(questionId) {
 function handleResetConfirm() {
   quizStore.reset()
   popups.reset.show.value = false
+}
+
+function handleRestartConfirm() {
+  quizStore.reset()
+  showCompletionPopup.value = false
 }
 </script>
 
@@ -115,9 +139,10 @@ function handleResetConfirm() {
   box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.3);
 }
 
-.answered-indicator .material-icons {
+.check-icon {
   color: var(--text-white);
-  font-size: 1.5rem;
+  font-size: 1.75rem;
+  font-weight: bold;
 }
 
 /* Answered question dimming */

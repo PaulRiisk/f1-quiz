@@ -2,83 +2,63 @@
   "questions": [
     {
       "id": 1,
-      "type": "driver",
       "image": "/src/assets/images/Max.webp",
       "question": "Wer ist das?",
-      "answer": ["Max Verstappen", "Verstappen", "Max"],
-      "points": 10
+      "answer": ["Max Verstappen", "Verstappen", "Max"]
     },
     {
       "id": 2,
-      "type": "parts",
       "image": "/src/assets/images/Softs.webp",
       "question": "Welcher Reifentyp ist das?",
-      "answer": ["Soft", "Weich", "Softs", "S"],
-      "points": 10
+      "answer": ["Soft", "Weich", "Softs", "S"]
     },
     {
       "id": 3,
-      "type": "driver",
       "image": "/src/assets/images/Senna.webp",
       "question": "Wem gehört dieser Helm?",
-      "answer": ["Ayrton Senna", "Senna", "Ayrton"],
-      "points": 10
+      "answer": ["Ayrton Senna", "Senna", "Ayrton"]
     },
     {
       "id": 4,
-      "type": "track",
       "image": "/src/assets/images/Monaco.webp",
       "question": "Welcher Racetrack ist das?",
-      "answer": ["Monaco"],
-      "points": 10
+      "answer": ["Monaco"]
     },
     {
       "id": 5,
-      "type": "team",
       "image": "/src/assets/images/Williams.webp",
       "question": "Zu welchem Team gehört dieser Rennanzug?",
-      "answer": ["Williams Racing", "Williams"],
-      "points": 10
+      "answer": ["Williams Racing", "Williams"]
     },
     {
       "id": 6,
-      "type": "driver",
       "image": "/src/assets/images/Charles.webp",
       "question": "Wer ist das?",
-      "answer": ["Charles Leclerc", "Leclerc", "Charles"],
-      "points": 10
+      "answer": ["Charles Leclerc", "Leclerc", "Charles"]
     },
     {
       "id": 7,
-      "type": "team",
       "image": "/src/assets/images/Mercedes_Color.webp",
       "question": "Welche Teamfarben sind hier zu sehen?",
-      "answer": ["Mercedes", "Mercedes AMG", "AMG"],
-      "points": 10
+      "answer": ["Mercedes", "Mercedes AMG", "AMG"]
     },
     {
       "id": 8,
-      "type": "team",
       "image": "/src/assets/images/Alpine_Car.webp",
       "question": "Zu welchem Team gehört dieses F1 Auto?",
-      "answer": ["Alpine", "BWT Alpine", "Alpine F1 Team", "Alpine F1"],
-      "points": 10
+      "answer": ["Alpine", "BWT Alpine", "Alpine F1 Team", "Alpine F1"]
     },
     {
       "id": 9,
-      "type": "team",
       "image": "/src/assets/images/Spa.webp",
       "question": "Welcher Racetrack ist das?",
-      "answer": ["Spa-Francorchamps", "Spa"],
-      "points": 10
+      "answer": ["Spa-Francorchamps", "Spa"]
     },
     {
       "id": 10,
-      "type": "parts",
       "image": "/src/assets/images/Wets.webp",
       "question": "Welcher Reifentyp ist das?",
-      "answer": ["Wets", "Regen", "Regenreifen"],
-      "points": 10
+      "answer": ["Wets", "Regen", "Regenreifen"]
     }
   ]
 }

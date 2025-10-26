@@ -7,6 +7,7 @@
           :src="question.image" 
           :alt="question.question"
           class="question-image"
+          loading="lazy"
         />
       </div>
 
@@ -21,6 +22,13 @@
           :class="{ 'wrong': showWrongAnimation }"
           :disabled="showSuccess"
         />
+        <button 
+          @click="submitAnswer"
+          class="submit-button"
+          :disabled="!userAnswer.trim() || showSuccess"
+        >
+          <img src="@/assets/icons/send.svg" alt="Send" class="icon" />
+        </button>
       </div>
     </div>
 
@@ -76,8 +84,7 @@ function submitAnswer() {
   const isCorrect = quizStore.checkAnswer(question.value.id, userAnswer.value)
 
   if (isCorrect) {
-    // Add points and mark as answered
-    quizStore.addPoints(question.value.points)
+    // Mark as answered
     quizStore.markAsAnswered(question.value.id)
     
     // Show success popup
@@ -143,10 +150,13 @@ function handleContinue() {
   max-width: 37.5rem;
   margin-top: auto;
   padding-bottom: 2.5rem;
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
 }
 
 .answer-input {
-  width: 100%;
+  flex: 1;
   padding: 1.125rem 1.5rem;
   font-size: 1rem;
   background-color: var(--text-white);
@@ -155,6 +165,40 @@ function handleContinue() {
   color: var(--darker-bg);
   outline: none;
   transition: transform 0.2s, border-color 0.2s;
+}
+
+.submit-button {
+  width: 3.75rem;
+  height: 3.75rem;
+  background-color: var(--primary-red);
+  border: none;
+  border-radius: 1rem;
+  color: var(--text-white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, opacity 0.2s;
+  flex-shrink: 0;
+}
+
+.submit-button:hover:not(:disabled) {
+  transform: scale(1.05);
+}
+
+.submit-button:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.submit-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.submit-button .icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  filter: brightness(0) invert(1); /* Makes SVG white */
 }
 
 .answer-input::placeholder {

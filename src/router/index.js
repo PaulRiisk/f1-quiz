@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import StartScreen from '@/components/StartScreen.vue'
 import QuestionGrid from '@/components/QuestionGrid.vue'
 import QuestionView from '@/components/QuestionView.vue'
+import ImpressumView from '@/components/ImpressumView.vue'
 
 const routes = [
   {
@@ -19,6 +20,11 @@ const routes = [
     name: 'question',
     component: QuestionView,
     props: true
+  },
+  {
+    path: '/impressum',
+    name: 'impressum',
+    component: ImpressumView
   }
 ]
 

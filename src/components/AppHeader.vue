@@ -7,7 +7,7 @@
         class="back-button"
         aria-label="Back"
       >
-        <span class="material-icons">chevron_left</span>
+        <img src="@/assets/icons/left-arrow.svg" alt="Back" class="icon" />
       </button>
       <h1 class="title">{{ pageTitle }}</h1>
       <button 
@@ -16,16 +16,24 @@
         class="help-button"
         aria-label="Help"
       >
-        <span class="material-icons">help_outline</span>
+        <img src="@/assets/icons/help.svg" alt="Help" class="icon" />
       </button>
-      <button 
-        v-if="showReset"
-        @click="$emit('show-reset')"
-        class="reset-button"
-        aria-label="Reset"
-      >
-        <span class="material-icons">refresh</span>
-      </button>
+      <div v-if="showReset" class="right-buttons">
+        <button 
+          @click="goToImpressum"
+          class="info-button"
+          aria-label="Impressum"
+        >
+          <img src="@/assets/icons/info.svg" alt="Info" class="icon" />
+        </button>
+        <button 
+          @click="$emit('show-reset')"
+          class="reset-button"
+          aria-label="Reset"
+        >
+          <img src="@/assets/icons/restart.svg" alt="Reset" class="icon" />
+        </button>
+      </div>
     </nav>
   </header>
 </template>
@@ -48,7 +56,8 @@ const pageTitle = computed(() => {
   }
   
   const titles = {
-    'questions': 'Das F1 QUIZ'
+    'questions': 'Das F1 QUIZ',
+    'impressum': 'Impressum'
   }
   return titles[route.name] || 'F1 Quiz'
 })
@@ -70,7 +79,13 @@ function goBack() {
     router.push({ name: 'questions' })
   } else if (route.name === 'questions') {
     router.push({ name: 'start' })
+  } else if (route.name === 'impressum') {
+    router.push({ name: 'questions' })
   }
+}
+
+function goToImpressum() {
+  router.push({ name: 'impressum' })
 }
 </script>
 
@@ -92,6 +107,7 @@ function goBack() {
 
 .back-button,
 .help-button,
+.info-button,
 .reset-button {
   background: none;
   border: none;
@@ -105,17 +121,20 @@ function goBack() {
 
 .back-button:hover,
 .help-button:hover,
+.info-button:hover,
 .reset-button:hover {
   opacity: 0.7;
 }
 
-.back-button .material-icons {
-  font-size: 2rem;
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  filter: brightness(0) invert(1); /* Makes SVG white */
 }
 
-.help-button .material-icons,
-.reset-button .material-icons {
-  font-size: 1.5rem;
+.back-button .icon {
+  width: 2rem;
+  height: 2rem;
 }
 
 .title {
@@ -127,8 +146,13 @@ function goBack() {
   color: var(--text-white);
 }
 
-.help-button,
-.reset-button {
+.right-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.help-button {
   margin-left: auto;
 }
 </style>

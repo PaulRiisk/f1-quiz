@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 * {
   margin: 0;
@@ -8,11 +7,11 @@
 }
 
 :root {
-  --primary-red: #E10600;
+  --primary-red: #c90700;
   --dark-bg: #373C3E;
   --darker-bg: #272A2C;
   --text-white: #ffffff;
-  --image-bg: #6d6d6d;
+  --image-bg: #757575;
   --text-gray: #A0A0A0;
   --card-bg: #3A3A3A;
   --success-green: #4CAF50;
@@ -53,19 +52,4 @@ body {
     background-position: center center;
     background-attachment: fixed;
   }
-}
-
-.material-icons {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 1.5rem;
-  line-height: 1;
-  letter-spacing: normal;
-  text-transform: none;
-  display: inline-block;
-  white-space: nowrap;
-  word-wrap: normal;
-  direction: ltr;
-  -webkit-font-smoothing: antialiased;
 }

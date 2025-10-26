@@ -20,40 +20,48 @@
       @click="startQuiz" 
       class="start-button"
     >
-      <span class="play-icon material-icons">play_arrow</span>
+      <span class="play-icon">▶</span>
       <span>Start</span>
     </button>
 
     <!-- Progress section -->
     <div class="progress-section">
-      <div class="progress-bar-container">
-        <div class="progress-bar">
-          <div 
-            class="progress-fill" 
-            :style="{ width: progressPercentage + '%' }"
-          ></div>
-        </div>
-      </div>
-      <div class="progress-info">
-        <span class="progress-count">{{ answeredCount }} / {{ totalQuestions }}</span>
-        <span class="progress-percentage">{{ progressPercentage }}%</span>
-      </div>
+      <ProgressBar @completed-click="showCompletionPopup = true" />
     </div>
+
+    <!-- Completion Popup -->
+    <BasePopup 
+      v-if="showCompletionPopup"
+      title="Geschafft!"
+      message="Willst du Neustarten?"
+      variant="warning"
+      confirm-text="Ja"
+      cancel-text="Nein"
+      :show-cancel-button="true"
+      @confirm="handleRestartConfirm"
+      @cancel="showCompletionPopup = false"
+    />
   </div>
 </template>
 
 <script setup>
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useQuizStore } from '@/stores/quiz'
-import { storeToRefs } from 'pinia'
+import ProgressBar from './ProgressBar.vue'
+import BasePopup from './BasePopup.vue'
 
 const router = useRouter()
 const quizStore = useQuizStore()
-
-const { answeredCount, totalQuestions, progressPercentage } = storeToRefs(quizStore)
+const showCompletionPopup = ref(false)
 
 function startQuiz() {
   router.push({ name: 'questions' })
+}
+
+function handleRestartConfirm() {
+  quizStore.reset()
+  showCompletionPopup.value = false
 }
 </script>
 
@@ -146,43 +154,13 @@ function startQuiz() {
 }
 
 .play-icon {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
 }
 
 /* Progress section */
 .progress-section {
   width: calc(100% - 2.5rem);
   max-width: 25rem;
-  background-color: var(--darker-bg);
-  border-radius: 1rem;
-  padding: 1.5rem;
   margin-bottom: 2.5rem;
-}
-
-.progress-bar-container {
-  margin-bottom: 1rem;
-}
-
-.progress-bar {
-  width: 100%;
-  height: 0.5rem;
-  background-color: var(--card-bg);
-  border-radius: 0.25rem;
-  overflow: hidden;
-}
-
-.progress-fill {
-  height: 100%;
-  background-color: var(--text-white);
-  border-radius: 0.25rem;
-  transition: width 0.3s ease;
-}
-
-.progress-info {
-  display: flex;
-  justify-content: space-between;
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--text-white);
 }
 </style>

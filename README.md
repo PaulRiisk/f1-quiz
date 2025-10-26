@@ -1,23 +1,94 @@
 # 🏎️ F1 Quiz App
 
-Eine kleine Web-App als Quiz rund um die Formel 1.  
-Auf spielerische Art kannst du dein Wissen testen: Es wird ein Bild angezeigt, dazu eine Frage gestellt, und du musst die richtige Antwort eintippen.  
+**Prüfungsleistung - Webentwicklung**  
+**Student:** Paul  
+**Kontakt:** ---
 
-## Features
+Eine interaktive Quiz-Webanwendung rund um die Formel 1. Die App testet spielerisch das Wissen über Fahrer, Teams, Rennstrecken und mehr durch bildbasierte Fragen.
 
-- Modernes, mobiloptimiertes Quiz-Design  
-- Startbildschirm mit Überblick über deinen Fortschritt  
-- Übersicht aller Fragen mit erkennbar beantworteten und offenen Aufgaben  
-- Detailansicht mit Bild, Frage und Eingabefeld  
-- Direkte Rückmeldung, ob eine Antwort richtig ist  
+## Projektbeschreibung
+
+Dieses Projekt ist ein nicht-kommerzielles Fanprojekt und dient ausschließlich zu Bildungs- und Unterhaltungszwecken. Es besteht keine offizielle Verbindung zur Formel 1, der FIA oder anderen F1-Organisationen. Alle verwendeten Grafiken wurden selbst erstellt.
+
+### Features
+
+- **Startbildschirm** mit Logo und Fortschrittsanzeige
+- **Fragen-Übersicht** mit visueller Darstellung aller Fragen (beantwortet/offen)
+- **Interaktive Frageansicht** mit Bildern und Eingabefeld
+- **Direkte Rückmeldung** bei richtigen/falschen Antworten
+- **Fortschrittsspeicherung** (localStorage)
+- **Completion-System** mit "Gewonnen"-Popup bei allen beantworteten Fragen
+- **Responsive Design** optimiert für Mobile und Desktop
+- **Impressum** mit allen rechtlichen Informationen
 
 ## Technologien
 
-- [Vue 3](https://vuejs.org/)  
-- [Vite](https://vitejs.dev/)  
-- [Google Fonts](https://fonts.google.com/) für Typografie und Icons  
+- **Vue 3** (Composition API)
+- **Vue Router** für Navigation
+- **Pinia** für State Management
+- **Vite** als Build-Tool und Dev-Server
+- **Custom CSS** mit CSS Variables
 
-## Ziel
+## Installation & Start
 
-Das Projekt ist als kleine Lern- und Spiel-App gedacht und verbindet Formel-1-Themen mit einer modernen Quiz-Umsetzung.  
-Es dient sowohl als unterhaltsames Spiel für Motorsport-Fans als auch als Showcase für den Einsatz von Vue & Vite im Frontend.  
+### Voraussetzungen
+
+- **Node.js** (Version 16 oder höher)
+- **npm** (wird mit Node.js installiert)
+
+### Schritt 1: Abhängigkeiten installieren
+
+Nach dem Entpacken der ZIP-Datei öffnen Sie ein Terminal im Projektverzeichnis und führen Sie folgenden Befehl aus:
+
+```bash
+npm install
+```
+
+### Schritt 2: Entwicklungsserver starten
+
+```bash
+npm run dev
+```
+
+Die Anwendung ist nun unter **http://localhost:5173** erreichbar.
+
+## Nutzung
+
+1. **Startbildschirm**: Zeigt Logo und aktuellen Fortschritt
+2. **"Start" klicken**: Gelangt zur Fragen-Übersicht
+3. **Frage auswählen**: Klick auf ein Bild öffnet die Detailansicht
+4. **Antwort eingeben**: Text eingeben und Enter drücken oder Submit-Button klicken
+5. **Fortschritt verfolgen**: Beantwortete Fragen werden markiert
+6. **Quiz abschließen**: Bei 100% erscheint ein "Gewonnen"-Popup
+
+### Zusätzliche Funktionen
+
+- **Zurück-Button** (←): Navigation zurück
+- **Hilfe-Button** (?): Zeigt Hinweise zur Eingabe
+- **Reset-Button** (↻): Setzt Fortschritt zurück
+- **Info-Button** (i): Öffnet Impressum
+
+## Besonderheiten der Implementierung
+
+- **Pinia Store** verwaltet Fragen, Fortschritt und Antworten
+- **localStorage** speichert Fortschritt persistent
+- **Lazy Loading** für Bilder
+- **Lokale SVG-Icons** (keine externen Font-Libraries)
+
+### Responsive Design
+- Mobile-First Ansatz
+- Desktop-Version mit fester Breite und Hintergrund
+- Touch-optimierte Interaktionen
+
+## Lizenz & Urheberrecht
+
+Dieses Projekt ist eine Prüfungsleistung und dient ausschließlich Bildungszwecken. Alle selbst erstellten Grafiken und Illustrationen sind künstlerische Interpretationen. Marken und Namen bleiben Eigentum ihrer jeweiligen Rechteinhaber.
+
+## Autor
+
+**Name Nachname**  
+Matrikelnummer: 
+E-Mail: 
+
+*Erstellt mit Vue 3 + Vite*
+  
