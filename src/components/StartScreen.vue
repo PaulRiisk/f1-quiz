@@ -5,7 +5,7 @@
       <div class="logo">
         <div class="f1-logo-container">
           <img 
-            src="/src/assets/images/F1_Main_Graph.webp" 
+            src="/images/F1_Main_Graph.webp" 
             alt="F1 Logo Background"
             class="f1-background-image"
           />
