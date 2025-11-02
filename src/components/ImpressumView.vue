@@ -1,38 +1,19 @@
 <template>
   <div class="impressum-view">
+    
+    <!-- Impressum Content -->
     <div class="impressum-content">
       <section class="section">
-        <h2>Angaben gemäß § 5 TMG</h2>
+        <h2>Angaben zum Autor</h2>
         <p>Paul Rist</p>
         <p>Matrikelnummer: s3005213</p>
-        <p>E-Mail: paul-rist@outlook.de</p>
-      </section>
-
-      <section class="section">
-        <h2>Haftungsausschluss</h2>
-        <h3>Inhalt des Onlineangebotes</h3>
-        <p>
-          Dieses Quiz ist ein rein privates, nicht-kommerzielles Fanprojekt und dient ausschließlich Unterhaltungszwecken. 
-          Es besteht keine offizielle Verbindung zur Formel 1, der FIA, den Teams oder anderen offiziellen F1-Organisationen.
-        </p>
-        <p>
-          Die verwendeten Grafiken und Illustrationen wurden selbst erstellt und stellen künstlerische Interpretationen dar. 
-          Alle Marken und Namen bleiben Eigentum ihrer jeweiligen Rechteinhaber.
-        </p>
-      </section>
-
-      <section class="section">
-        <h2>Urheberrecht</h2>
-        <p>
-          Die durch mich erstellten Inhalte und Werke auf dieser Webseite unterliegen dem deutschen Urheberrecht. 
-          Die selbst erstellten Illustrationen sind Eigenkreationen und dienen der künstlerischen Darstellung im Rahmen eines Fanprojekts.
-        </p>
+        <p>E-Mail: s3005123@edu.dhsn.de</p>
       </section>
 
       <section class="section">
         <h2>Datenschutz</h2>
         <p>
-          Diese Anwendung speichert deinen Spielfortschritt lokal in deinem Browser (localStorage). 
+          Diese Anwendung speichert den Spielfortschritt lokal in deinem Browser (localStorage). 
           Es werden keine persönlichen Daten erhoben oder an Dritte weitergegeben.
         </p>
       </section>
@@ -48,7 +29,7 @@
 </template>
 
 <script setup>
-// No special logic needed
+// No script part needed
 </script>
 
 <style scoped>
@@ -56,7 +37,7 @@
   min-height: 100vh;
   background-color: var(--dark-bg);
   padding: 1.25rem;
-  padding-top: 6rem; /* Space for header */
+  padding-top: 6rem;
 }
 
 .impressum-content {

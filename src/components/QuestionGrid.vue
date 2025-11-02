@@ -3,6 +3,7 @@
     <!-- Progress Bar -->
     <ProgressBar @completed-click="showCompletionPopup = true" />
 
+    <!-- Question Grid -->
     <div class="question-grid">
       <div
         v-for="question in questions"
@@ -59,6 +60,7 @@ import { storeToRefs } from 'pinia'
 import BasePopup from './BasePopup.vue'
 import ProgressBar from './ProgressBar.vue'
 
+// Setup router and store, and inject popups
 const router = useRouter()
 const quizStore = useQuizStore()
 const popups = inject('popups')
@@ -66,19 +68,23 @@ const popups = inject('popups')
 const { questions } = storeToRefs(quizStore)
 const showCompletionPopup = ref(false)
 
+// Check if question is answered
 function isAnswered(questionId) {
   return quizStore.isAnswered(questionId)
 }
 
+// Navigate to question view
 function selectQuestion(questionId) {
   router.push({ name: 'question', params: { id: questionId } })
 }
 
+// Handle reset confirmation
 function handleResetConfirm() {
   quizStore.reset()
   popups.reset.show.value = false
 }
 
+// Handle restart confirmation
 function handleRestartConfirm() {
   quizStore.reset()
   showCompletionPopup.value = false
@@ -124,7 +130,6 @@ function handleRestartConfirm() {
   object-fit: cover;
 }
 
-/* Answered indicator */
 .answered-indicator {
   position: absolute;
   top: 0.625rem;

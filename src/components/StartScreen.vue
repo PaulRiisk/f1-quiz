@@ -5,7 +5,7 @@
       <div class="logo">
         <div class="f1-logo-container">
           <img 
-            src="/src/assets/images/F1_Main_Graph.webp" 
+            src="/images/F1_Main_Graph.webp" 
             alt="F1 Logo Background"
             class="f1-background-image"
           />
@@ -51,14 +51,17 @@ import { useQuizStore } from '@/stores/quiz'
 import ProgressBar from './ProgressBar.vue'
 import BasePopup from './BasePopup.vue'
 
+// Setup router and store
 const router = useRouter()
 const quizStore = useQuizStore()
 const showCompletionPopup = ref(false)
 
+// Start quiz and navigate to questions view
 function startQuiz() {
   router.push({ name: 'questions' })
 }
 
+// Handle restart confirmation
 function handleRestartConfirm() {
   quizStore.reset()
   showCompletionPopup.value = false
@@ -75,7 +78,6 @@ function handleRestartConfirm() {
   background-color: var(--dark-bg);
 }
 
-/* Logo section */
 .logo-section {
   flex: 1;
   display: flex;
@@ -124,7 +126,6 @@ function handleRestartConfirm() {
   letter-spacing: 0.125rem;
 }
 
-/* Start button */
 .start-button {
   width: calc(100% - 2.5rem);
   max-width: 25rem;

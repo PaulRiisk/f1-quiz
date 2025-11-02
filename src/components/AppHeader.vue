@@ -1,5 +1,7 @@
 <template>
   <header class="app-header">
+
+    <!-- Navigation Bar -->
     <nav class="nav-bar">
       <button 
         v-if="canGoBack" 
@@ -7,6 +9,8 @@
         class="back-button"
         aria-label="Back"
       >
+
+      <!-- Back button icon -->
         <img src="@/assets/icons/left-arrow.svg" alt="Back" class="icon" />
       </button>
       <h1 class="title">{{ pageTitle }}</h1>
@@ -16,6 +20,7 @@
         class="help-button"
         aria-label="Help"
       >
+      <!-- Help button icon -->
         <img src="@/assets/icons/help.svg" alt="Help" class="icon" />
       </button>
       <div v-if="showReset" class="right-buttons">
@@ -24,6 +29,7 @@
           class="info-button"
           aria-label="Impressum"
         >
+        <!-- Info button icon -->
           <img src="@/assets/icons/info.svg" alt="Info" class="icon" />
         </button>
         <button 
@@ -31,6 +37,7 @@
           class="reset-button"
           aria-label="Reset"
         >
+        <!-- Reset button icon -->
           <img src="@/assets/icons/restart.svg" alt="Reset" class="icon" />
         </button>
       </div>
@@ -43,12 +50,15 @@ import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useQuizStore } from '@/stores/quiz'
 
+// Setup emits
 defineEmits(['show-hint', 'show-reset'])
 
+// Setup route, router, and store
 const route = useRoute()
 const router = useRouter()
 const quizStore = useQuizStore()
 
+// Computed properties for dynamic title and button visibility
 const pageTitle = computed(() => {
   if (route.name === 'question') {
     const question = quizStore.getQuestionById(route.params.id)
@@ -74,6 +84,7 @@ const showReset = computed(() => {
   return route.name === 'questions'
 })
 
+// Navigation functions
 function goBack() {
   if (route.name === 'question') {
     router.push({ name: 'questions' })
@@ -84,6 +95,7 @@ function goBack() {
   }
 }
 
+// Navigate to Impressum view
 function goToImpressum() {
   router.push({ name: 'impressum' })
 }
@@ -129,7 +141,7 @@ function goToImpressum() {
 .icon {
   width: 1.5rem;
   height: 1.5rem;
-  filter: brightness(0) invert(1); /* Makes SVG white */
+  filter: brightness(0) invert(1); /* Makes icons white */
 }
 
 .back-button .icon {

@@ -33,6 +33,7 @@
 </template>
 
 <script setup>
+// Define props
 const props = defineProps({
   title: {
     type: String,
@@ -44,7 +45,7 @@ const props = defineProps({
   },
   variant: {
     type: String,
-    default: 'default', // 'default', 'success', 'warning'
+    default: 'default',
     validator: (value) => ['default', 'success', 'warning'].includes(value)
   },
   confirmText: {
@@ -64,9 +65,10 @@ const props = defineProps({
     default: true
   }
 })
-
+// Define emits
 const emit = defineEmits(['confirm', 'cancel', 'close'])
 
+// Handle confirm action, cancel action, and overlay click
 function handleConfirm() {
   emit('confirm')
   emit('close')
@@ -82,6 +84,7 @@ function handleOverlayClick() {
     handleCancel()
   }
 }
+
 </script>
 
 <style scoped>
@@ -196,7 +199,7 @@ function handleOverlayClick() {
   transform: scale(0.98);
 }
 
-/* Single button (full width) */
+/* Single button layout */
 .primary-button {
   width: 100%;
 }

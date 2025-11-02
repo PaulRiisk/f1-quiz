@@ -4,6 +4,7 @@
     :class="{ 'completed': isCompleted, 'clickable': isCompleted }"
     @click="handleClick"
   >
+    <!-- Progress Bar -->
     <div class="progress-bar">
       <div 
         class="progress-fill"
@@ -21,6 +22,7 @@
 import { computed } from 'vue'
 import { useQuizStore } from '@/stores/quiz'
 
+// Setup store, emitters, and computed properties
 const quizStore = useQuizStore()
 
 const emit = defineEmits(['completed-click'])
@@ -28,6 +30,7 @@ const emit = defineEmits(['completed-click'])
 const progressPercentage = computed(() => quizStore.progressPercentage)
 const isCompleted = computed(() => progressPercentage.value === 100)
 
+// Handle click on progress bar
 function handleClick() {
   if (isCompleted.value) {
     emit('completed-click')

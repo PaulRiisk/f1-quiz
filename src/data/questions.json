@@ -2,61 +2,61 @@
   "questions": [
     {
       "id": 1,
-      "image": "/src/assets/images/Max.webp",
+      "image": "/images/Max.webp",
       "question": "Wer ist das?",
       "answer": ["Max Verstappen", "Verstappen", "Max"]
     },
     {
       "id": 2,
-      "image": "/src/assets/images/Softs.webp",
+      "image": "/images/Softs.webp",
       "question": "Welcher Reifentyp ist das?",
       "answer": ["Soft", "Weich", "Softs", "S"]
     },
     {
       "id": 3,
-      "image": "/src/assets/images/Senna.webp",
+      "image": "/images/Senna.webp",
       "question": "Wem gehört dieser Helm?",
       "answer": ["Ayrton Senna", "Senna", "Ayrton"]
     },
     {
       "id": 4,
-      "image": "/src/assets/images/Monaco.webp",
+      "image": "/images/Monaco.webp",
       "question": "Welcher Racetrack ist das?",
       "answer": ["Monaco"]
     },
     {
       "id": 5,
-      "image": "/src/assets/images/Williams.webp",
+      "image": "/images/Williams.webp",
       "question": "Zu welchem Team gehört dieser Rennanzug?",
       "answer": ["Williams Racing", "Williams"]
     },
     {
       "id": 6,
-      "image": "/src/assets/images/Charles.webp",
+      "image": "/images/Charles.webp",
       "question": "Wer ist das?",
       "answer": ["Charles Leclerc", "Leclerc", "Charles"]
     },
     {
       "id": 7,
-      "image": "/src/assets/images/Mercedes_Color.webp",
+      "image": "/images/Mercedes_Color.webp",
       "question": "Welche Teamfarben sind hier zu sehen?",
       "answer": ["Mercedes", "Mercedes AMG", "AMG"]
     },
     {
       "id": 8,
-      "image": "/src/assets/images/Alpine_Car.webp",
+      "image": "/images/Alpine_Car.webp",
       "question": "Zu welchem Team gehört dieses F1 Auto?",
       "answer": ["Alpine", "BWT Alpine", "Alpine F1 Team", "Alpine F1"]
     },
     {
       "id": 9,
-      "image": "/src/assets/images/Spa.webp",
+      "image": "/images/Spa.webp",
       "question": "Welcher Racetrack ist das?",
       "answer": ["Spa-Francorchamps", "Spa"]
     },
     {
       "id": 10,
-      "image": "/src/assets/images/Wets.webp",
+      "image": "/images/Wets.webp",
       "question": "Welcher Reifentyp ist das?",
       "answer": ["Wets", "Regen", "Regenreifen"]
     }

@@ -4,6 +4,7 @@ import QuestionGrid from '@/components/QuestionGrid.vue'
 import QuestionView from '@/components/QuestionView.vue'
 import ImpressumView from '@/components/ImpressumView.vue'
 
+// Define routes
 const routes = [
   {
     path: '/',
@@ -28,6 +29,7 @@ const routes = [
   }
 ]
 
+// Create router instance
 const router = createRouter({
   history: createWebHistory(),
   routes
