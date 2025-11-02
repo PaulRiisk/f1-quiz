@@ -18,17 +18,17 @@ Voraussetzungen: Node.js (Version 16 oder höher)
 
 Die benötigten Module sind bereits im ZIP-Paket enthalten. Sollte es dennoch zu Problemen kommen oder wenn Sie die Abhängigkeiten neu installieren möchten, führen Sie im Projektverzeichnis folgenden Befehl aus:
 
-´´´
+```
 npm install
-´´´
+```
 
 ### Schritt 2: Entwicklungsserver starten
 
 Starten Sie die Entwicklungsanwendung mit folgendem Befehl:
 
-´´´
+```
 npm run dev
-´´´
+```
 
 ## Features
 
