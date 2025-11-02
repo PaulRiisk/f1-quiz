@@ -4,7 +4,7 @@ import questionsData from '@/data/questions.json'
 
 const STORAGE_KEY = 'f1-quiz-progress'
 
-// Helper function to load saved progress
+// Helper function to load progress from localStorage
 function loadProgress() {
   try {
     const saved = localStorage.getItem(STORAGE_KEY)
@@ -22,7 +22,7 @@ function loadProgress() {
   }
 }
 
-// Helper function to save progress
+// Helper function to save progress to localStorage
 function saveProgress(answeredQuestions) {
   try {
     const data = {
@@ -35,25 +35,26 @@ function saveProgress(answeredQuestions) {
   }
 }
 
+// Define the quiz store
 export const useQuizStore = defineStore('quiz', () => {
-  // Initialize state with saved data
+
   const savedProgress = loadProgress()
   const questions = ref(questionsData.questions)
   const answeredQuestions = ref(savedProgress.answeredQuestions)
 
-  // Auto-save on changes
+  // Watch for changes and save progress
   watch(answeredQuestions, () => {
     saveProgress(answeredQuestions.value)
   }, { deep: true })
 
-  // Getters
+  // Getters for progress 
   const answeredCount = computed(() => answeredQuestions.value.size)
   const totalQuestions = computed(() => questions.value.length)
   const progressPercentage = computed(() => 
     Math.round((answeredCount.value / totalQuestions.value) * 100)
   )
 
-  // Actions
+  // Actions for validation and state management
   function markAsAnswered(questionId) {
     answeredQuestions.value.add(questionId)
   }
@@ -76,12 +77,13 @@ export const useQuizStore = defineStore('quiz', () => {
     )
   }
 
+  // Reset progress
   function reset() {
     answeredQuestions.value.clear()
-    // Remove progress from localStorage
     localStorage.removeItem(STORAGE_KEY)
   }
 
+  // Expose state, getters, and actions
   return {
     questions,
     answeredQuestions,

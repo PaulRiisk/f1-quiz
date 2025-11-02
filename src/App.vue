@@ -1,13 +1,20 @@
 <template>
   <div class="app-container">
+    <!-- App Header -->
     <AppHeader v-if="showHeader" @show-hint="handleShowHint" @show-reset="handleShowReset" />
+
+    <!-- Main Content Area -->
     <main class="main-content">
       <router-view v-slot="{ Component }">
+
+        <!-- Route Transition -->
         <transition name="fade" mode="out-in">
           <component :is="Component" :key="route.fullPath" />
         </transition>
+
       </router-view>
     </main>
+
   </div>
 </template>
 
@@ -16,13 +23,15 @@ import { computed, provide, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import AppHeader from './components/AppHeader.vue'
 
+// Setup route and popup states
 const route = useRoute()
 const showHintPopup = ref(false)
 const showResetPopup = ref(false)
 
-// Header only on specific routes
+// Computed property to determine header visibility
 const showHeader = computed(() => route.name !== 'start')
 
+// Handlers to show popups
 function handleShowHint() {
   showHintPopup.value = true
 }
@@ -31,7 +40,7 @@ function handleShowReset() {
   showResetPopup.value = true
 }
 
-// Provide the popup states to child components
+// Provide popup states and toggles to child components
 provide('popups', {
   hint: {
     show: showHintPopup,
@@ -57,7 +66,7 @@ provide('popups', {
   position: relative;
 }
 
-/* Transition animations - Simple Fade */
+/* Transition animations -> Simple Fade */
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.3s ease;

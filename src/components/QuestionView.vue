@@ -58,6 +58,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { useQuizStore } from '@/stores/quiz'
 import BasePopup from './BasePopup.vue'
 
+// Setup variables
 const route = useRoute()
 const router = useRouter()
 const quizStore = useQuizStore()
@@ -67,40 +68,41 @@ const userAnswer = ref('')
 const showSuccess = ref(false)
 const showWrongAnimation = ref(false)
 
+// Get current question based on route parameter
 const question = computed(() => {
   return quizStore.getQuestionById(route.params.id)
 })
 
+// Mount logic, redirect if already answered
 onMounted(() => {
-  // If question is already answered, return to overview
   if (quizStore.isAnswered(parseInt(route.params.id))) {
     router.push({ name: 'questions' })
   }
 })
 
+// Submit answer logic, check correctness, show feedback
 function submitAnswer() {
   if (!userAnswer.value.trim() || !question.value) return
 
   const isCorrect = quizStore.checkAnswer(question.value.id, userAnswer.value)
 
   if (isCorrect) {
-    // Mark as answered
+
     quizStore.markAsAnswered(question.value.id)
     
-    // Show success popup
     showSuccess.value = true
   } else {
-    // Wrong answer - clear input and show shake animation
+
     userAnswer.value = ''
     showWrongAnimation.value = true
     
-    // Reset animation after 500ms
     setTimeout(() => {
       showWrongAnimation.value = false
     }, 500)
   }
 }
 
+// Continue to next question
 function handleContinue() {
   showSuccess.value = false
   router.push({ name: 'questions' })
@@ -127,7 +129,6 @@ function handleContinue() {
   flex: 1;
 }
 
-/* Image Container */
 .image-container {
   width: 100%;
   max-width: 28.125rem;
@@ -144,7 +145,6 @@ function handleContinue() {
   object-fit: cover;
 }
 
-/* Input Container */
 .input-container {
   width: 100%;
   max-width: 37.5rem;
@@ -198,7 +198,7 @@ function handleContinue() {
 .submit-button .icon {
   width: 1.5rem;
   height: 1.5rem;
-  filter: brightness(0) invert(1); /* Makes SVG white */
+  filter: brightness(0) invert(1);
 }
 
 .answer-input::placeholder {
