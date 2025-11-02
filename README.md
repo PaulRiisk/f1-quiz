@@ -45,11 +45,4 @@ npm run dev
 - **Vite** als Build-Tool und Dev-Server
 - **Custom CSS** mit CSS Variables
 
-## Autor
 
-**Name Nachname**  
-Matrikelnummer: 
-E-Mail: 
-
-*Erstellt mit Vue 3 + Vite*
-  
