@@ -12,8 +12,6 @@ Dieses Projekt ist ein nicht-kommerzielles Fan- und Prüfungsprojekt und dient a
 
 ## Anwendung testen
 
-Es gibt drei Möglichkeiten, die Anwendung zu testen:
-
 ### Option 1: Gehostete Website besuchen
 
 Die Anwendung ist testweise gehostet und kann unter folgender URL aufgerufen werden: **https://f1-quiz.paulrist.io/**
