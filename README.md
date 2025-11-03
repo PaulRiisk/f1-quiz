@@ -8,13 +8,17 @@ Eine interaktive Quiz-Webanwendung rund um die Formel 1. Die App testet spieleri
 
 ## Projektbeschreibung
 
-Dieses Projekt ist ein nicht-kommerzielles Fanprojekt und dient ausschließlich zu Bildungs- und Unterhaltungszwecken. Es besteht keine offizielle Verbindung zur Formel 1, der FIA oder anderen F1-Organisationen. Alle verwendeten Grafiken wurden selbst erstellt.
+Dieses Projekt ist ein nicht-kommerzielles Fan- und Prüfungsprojekt und dient ausschließlich zu Bildungs- und Unterhaltungszwecken. Es besteht keine offizielle Verbindung zur Formel 1, der FIA oder anderen F1-Organisationen. Alle verwendeten Grafiken wurden selbst erstellt.
 
-## Entwicklungsanwendung starten
+## Anwendung testen
+
+Es gibt zwei Möglichkeiten, die Anwendung zu testen:
+
+### Option 1: Entwicklungsserver (empfohlen)
 
 Voraussetzungen: Node.js (Version 16 oder höher)
 
-### Schritt 1 (optional): Abhängigkeiten installieren
+**Schritt 1 (optional):** Abhängigkeiten installieren
 
 Die benötigten Module sind bereits im ZIP-Paket enthalten. Sollte es dennoch zu Problemen kommen oder wenn Sie die Abhängigkeiten neu installieren möchten, führen Sie im Projektverzeichnis folgenden Befehl aus:
 
@@ -22,13 +26,27 @@ Die benötigten Module sind bereits im ZIP-Paket enthalten. Sollte es dennoch zu
 npm install
 ```
 
-### Schritt 2: Entwicklungsserver starten
+**Schritt 2:** Entwicklungsserver starten
 
 Starten Sie die Entwicklungsanwendung mit folgendem Befehl:
 
 ```
 npm run dev
 ```
+
+Die Anwendung ist dann standardmäßig unter `http://localhost:5173` erreichbar.
+
+### Option 2: Vorbereiteter Build verwenden
+
+Falls Sie die produktionsreife Version testen möchten, können Sie die Build-Version starten:
+
+```
+npm run preview
+```
+
+Die Build-Version ist dann unter `http://localhost:4173` erreichbar.
+
+Alternativ können Sie die Dateien aus dem `dist/`-Ordner auch direkt mit einem beliebigen HTTP-Server ausliefern.
 
 ## Features
 
