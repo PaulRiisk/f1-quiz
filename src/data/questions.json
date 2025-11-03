@@ -58,7 +58,7 @@
       "id": 10,
       "image": "/images/Wets.webp",
       "question": "Welcher Reifentyp ist das?",
-      "answer": ["Wets", "Regen", "Regenreifen"]
+      "answer": ["Wet", "Wets", "Regen", "Regenreifen"]
     }
   ]
 }
