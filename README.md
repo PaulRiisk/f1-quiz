@@ -4,40 +4,29 @@
 **Student:** Paul  
 **Kontakt:** ---
 
-Eine interaktive Quiz-Webanwendung rund um die Formel 1. Die App testet spielerisch das Wissen über Fahrer, Teams, Rennstrecken und mehr durch bildbasierte Fragen.
-
 ## Projektbeschreibung
+
+Eine interaktive Quiz-Webanwendung rund um die Formel 1. Die App testet spielerisch das Wissen über Fahrer, Teams, Rennstrecken und mehr durch bildbasierte Fragen.
 
 Dieses Projekt ist ein nicht-kommerzielles Fan- und Prüfungsprojekt und dient ausschließlich zu Bildungs- und Unterhaltungszwecken. Es besteht keine offizielle Verbindung zur Formel 1, der FIA oder anderen F1-Organisationen. Alle verwendeten Grafiken wurden selbst erstellt.
 
-## Anwendung testen
+## Voraussetzungen
 
-### Option 1: Entwicklungsserver (empfohlen)
+**Node.js** (Version 16 oder höher)
 
-Voraussetzungen: Node.js (Version 16 oder höher)
+## Installation
 
-**Schritt 1 (optional):** Abhängigkeiten installieren
-
-Die benötigten Module sind bereits im ZIP-Paket enthalten. Sollte es dennoch zu Problemen kommen oder wenn Sie die Abhängigkeiten neu installieren möchten, führen Sie im Projektverzeichnis folgenden Befehl aus:
+Die benötigten Module sind bereits im ZIP-Paket enthalten. Sollte es dennoch zu Problemen kommen oder wenn Sie die Abhängigkeiten neu installieren möchten, führen Sie im Terminal folgenden Befehl im Projektverzeichnis aus:
 
 ```
 npm install
 ```
 
-**Schritt 2:** Entwicklungsserver starten
+## Anwendung testen
 
-Starten Sie die Entwicklungsanwendung mit folgendem Befehl:
+### Option 1: Vorbereiteter Build verwenden
 
-```
-npm run dev
-```
-
-Die Anwendung ist dann standardmäßig unter `http://localhost:5173` erreichbar.
-
----
-### Option 2: Vorbereiteter Build verwenden
-
-Falls Sie den vorbereiteten Build testen möchten, können Sie die Build-Version starten:
+Falls Sie den vorbereiteten Build testen möchten, können Sie die Build-Version starten. Geben Sie dazu folgenden Befehl im Terminal ein:
 
 ```
 npm run preview
@@ -46,7 +35,18 @@ npm run preview
 Die Build-Version ist dann unter `http://localhost:4173` erreichbar und unter `dist/` zu finden.
 
 ---
-### Option 3: Gehostete Website besuchen
+### Option 2: Entwicklungsserver
+
+Starten Sie die Entwicklungsanwendung, indem Sie folgenden Befehl im Terminal eingeben:
+
+```
+npm run dev
+```
+
+Die Anwendung ist dann standardmäßig unter `http://localhost:5173` erreichbar.
+
+---
+### Option 3: Gehostete Website besuchen (ohne Node.js)
 
 Die Anwendung ist testweise gehostet und kann unter folgender URL aufgerufen werden: **https://f1-quiz.paulrist.io/**
 Die Zugangsdaten finden Sie in der Datei `Zugang.txt`.
